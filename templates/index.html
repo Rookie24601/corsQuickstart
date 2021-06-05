@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html land="en">
+<head>
+	<title> CORS quickstart </title>
+</head>
+
+<body>
+	<h1 id="display" onload="func1()"> Changing text</h1>
+	<img src="">
+
+	<script type="text/javascript">
+		bucket='corstest123';
+		obj_name='test.txt';
+
+		//xmil api 1 https://storage.googleapis.com/[BUCKET_NAME]/[OBJ_NAME]
+        //xml api 1 EXAMPLE
+		//url_template =`https://storage.googleapis.com/${bucket}/${obj_name}`;
+        
+		//xml api 2 : https://[BUCKET_NAME].storage.googleapis.com/[OBJ_NAME]
+        //xml api 2 EXAMPLE
+		url_template = `https://${bucket}.storage.googleapis.com/${obj_name}`;
+        
+        //json api  :  'https://storage.googleapis.com/storage/v1/b/[BUCKET_NAME]/o/[OBJECT_NAME]?QUERY_PARAMETER=VALUE')
+        //json api EXAMPLE 
+		//url_template = `https://storage.googleapis.com/storage/v1/b/${bucket}/o/${obj_name}`;
+        
+		console.log('Fetching: ', url_template);
+		
+		fetch(url_template).then(response => {
+            return response.text();
+        }).then(data => {
+            console.log(data);
+            document.getElementById('display').innerHTML = data;
+        }).catch(error => {
+			console.log(error);
+		});
+	</script>
+</body>
+</html>

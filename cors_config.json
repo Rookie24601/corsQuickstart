@@ -1,0 +1,8 @@
+[
+    {
+        "maxAgeSeconds": 60, 
+        "method": ["GET", "OPTIONS"], 
+        "origin": ["http://test.example.com", "http://127.0.0.1:5000"], 
+        "responseHeader": ["Content-Type"]
+    }
+]
